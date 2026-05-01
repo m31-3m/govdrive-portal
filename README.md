@@ -1,18 +1,83 @@
-# GovDrive: Modern Document Request Portal
+# 🏛️ GovDrive: Modern Digital Secretariat Portal
 
-### Project Description
-GovDrive is a high-fidelity government service application built with Laravel 11. It allows citizens to securely request official documents (Birth Certificates, Permits, etc.) and provides government officials with a streamlined dashboard to audit, approve, or reject submissions in real-time.
+**WAD 2 Final Project: Laravel Application**\
+**Submitted By:** \[Lorein Manluctao\] & \[Mel Magdaraog\]
+**Submitted TO:** \[Mr. Jehu Casimiro\]
 
-### Implemented Features (Teacher Guidelines)
-1. **CRUD Operations:** Full lifecycle for service requests (Create, Read, Update, Delete).
-2. **Authentication:** Secure Login/Register system using Laravel Breeze.
-3. **Middleware:** Route protection ensures only logged-in users access the portal.
-4. **Authorization:** 
-   - **Policies:** Restricts citizens to only view/edit their own data.
-   - **Gates:** Defines "admin-only" access for government officials.
-5. **Eloquent Relationships:** One-to-Many relationship between `User` and `ServiceRequest`.
-6. **2026 UI/UX:** Modern SaaS-style interface with Dark Mode support and Alpine.js feedback.
+------------------------------------------------------------------------
 
-### Credentials for Testing (Database Seeded)
-- **Admin:** admin@gov.ph | password123
-- **Citizen:** juan@citizen.com | password123
+## 📌 Project Overview
+
+GovDrive is a high-fidelity government service web application built with **Laravel 11**, **Tailwind CSS**, and **Alpine.js**.
+
+The system allows citizens to securely request official documents (Birth Certificates, Business Permits, etc.) and upload supporting files.
+Simultaneously, it provides government officials with an administrative dashboard to audit, approve, or reject submissions in real-time.
+
+We focused on modern UI/UX design while strictly adhering to secure backend practices (Role-Based Access Control, Policies, and Eloquent relationships).
+
+------------------------------------------------------------------------
+
+## 🚀 Implemented Features & Rubric Compliance
+
+### 1. Complete CRUD Operations
+
+-   Create, Read, Update, Delete for service requests
+
+### 2. Authentication
+
+-   Laravel Breeze authentication system
+
+### 3. Middleware
+
+-   Protected routes using auth middleware
+
+### 4. Authorization
+
+-   Policies and Gates for RBAC
+
+### 5. Eloquent Relationships
+
+-   One-to-Many: User ↔ ServiceRequest
+
+------------------------------------------------------------------------
+
+## 🔑 Demo Credentials
+
+  Role    Email              Password
+  ------- ------------------ -------------
+  Admin   admin@gov.ph       password123
+  User    juan@citizen.com   password123
+
+------------------------------------------------------------------------
+
+## 💻 Installation
+
+``` bash
+git clone https://github.com/m31-3m/govdrive-portal.git
+
+cd [YOUR_REPO_NAME]
+
+composer install
+
+npm install
+
+cp .env.example .env
+
+php artisan key:generate
+
+touch database/database.sqlite
+
+php artisan migrate:fresh --seed
+
+php artisan storage:link
+
+npm run build
+
+php artisan serve
+```
+
+------------------------------------------------------------------------
+
+## 🌐 Access
+
+http://127.0.0.1:8000
