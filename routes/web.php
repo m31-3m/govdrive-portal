@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 
     // CRUD Resource
     Route::resource('requests', ServiceRequestController::class);
-    // Add this above or below your resource route
+    
     Route::patch('/requests/{serviceRequest}/status', [ServiceRequestController::class, 'updateStatus'])->name('requests.status');
 
     

@@ -9,12 +9,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ServiceRequestController extends Controller
 {
-    use AuthorizesRequests; 
+    use AuthorizesRequests;
 
     public function index()
     {
-        $requests = (auth()->user()->role === 1) 
-            ? ServiceRequest::with('user')->latest()->get() 
+        $requests = (auth()->user()->role === 1)
+            ? ServiceRequest::with('user')->latest()->get()
             : auth()->user()->serviceRequests()->latest()->get();
 
         return view('requests.index', compact('requests'));
@@ -39,20 +39,21 @@ class ServiceRequestController extends Controller
         return redirect()->back()->with('success', 'Application submitted to the secure vault.');
     }
 
-    public function updateStatus(Request $request, ServiceRequest $serviceRequest)
+    public function updateStatus(Request $httpRequest, ServiceRequest $request)
     {
         $this->authorize('updateStatus', ServiceRequest::class);
-        
-        $request->validate(['status' => 'required|in:approved,rejected']);
-        $serviceRequest->update(['status' => $request->status]);
 
-        return redirect()->back()->with('success', 'Status updated to ' . $request->status);
+        $httpRequest->validate(['status' => 'required|in:approved,rejected']);
+        $request->update(['status' => $httpRequest->status]);
+
+        return redirect()->back()->with('success', 'Status updated to ' . $httpRequest->status);
     }
 
-    public function destroy(ServiceRequest $serviceRequest)
+    public function destroy(ServiceRequest $request)
     {
-        $this->authorize('delete', $serviceRequest);
-        $serviceRequest->delete();
+        $this->authorize('delete', $request);
+        $request->delete();
+
         return redirect()->back()->with('success', 'Record archived.');
     }
 }
