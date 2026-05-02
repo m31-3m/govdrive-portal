@@ -2,7 +2,7 @@
 
 **WAD 2 Final Project: Laravel Application**\
 **Submitted By:** \[Lorein Manluctao\] & \[Mel Magdaraog\]
-**Submitted TO:** \[Mr. Jehu Casimiro\]
+**Submitted To:** \[Mr. Jehu Casimiro\]
 
 ------------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ We focused on modern UI/UX design while strictly adhering to secure backend prac
 ## 🔑 Demo Credentials
 
   Role    Email              Password
-  ------- ------------------ -------------
+  ------- ------------------ --------------
   Admin   admin@gov.ph       password123
   User    juan@citizen.com   password123
 
