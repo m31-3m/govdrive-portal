@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('requests', ServiceRequestController::class);
     
     // Custom route for Admin to Update Status
-    Route::patch('/requests/{serviceRequest}/status', [ServiceRequestController::class, 'updateStatus'])->name('requests.status');
+    Route::patch('/requests/{request}/status', [ServiceRequestController::class, 'updateStatus'])->name('requests.status');
 });
 
 require __DIR__.'/auth.php';

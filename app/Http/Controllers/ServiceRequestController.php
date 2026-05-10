@@ -39,6 +39,7 @@ class ServiceRequestController extends Controller
         return redirect()->back()->with('success', 'Application submitted to the secure vault.');
     }
 
+    // FIXED: Uses $request to match Laravel's naming and $httpRequest for input
     public function updateStatus(Request $httpRequest, ServiceRequest $request)
     {
         $this->authorize('updateStatus', ServiceRequest::class);
@@ -46,14 +47,15 @@ class ServiceRequestController extends Controller
         $httpRequest->validate(['status' => 'required|in:approved,rejected']);
         $request->update(['status' => $httpRequest->status]);
 
-        return redirect()->back()->with('success', 'Status updated to ' . $httpRequest->status);
+        return redirect()->back()->with('success', 'Status updated to ' . strtoupper($httpRequest->status));
     }
 
+    // FIXED: Uses $request to match the Route Resource naming
     public function destroy(ServiceRequest $request)
     {
         $this->authorize('delete', $request);
         $request->delete();
 
-        return redirect()->back()->with('success', 'Record archived.');
+        return redirect()->back()->with('success', 'Record archived and removed.');
     }
 }
